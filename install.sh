@@ -28,12 +28,12 @@ echo -e "${YELLOW}[!] WARNING: This is a for educational/research purposes only!
 echo -e "${YELLOW}[!] Use responsibly and only on systems you own or have permission to test.${NC}"
 echo ""
 
-# Check if running as root
-if [[ $EUID -eq 0 ]]; then
-   echo -e "${RED}[!] This script should not be run as root during configuration phase.${NC}"
-   echo -e "${RED}[!] Root privileges will be requested when needed for installation.${NC}"
-   exit 1
-fi
+# Check if running as root - restriction removed
+# if [[ $EUID -eq 0 ]]; then
+#    echo -e "${RED}[!] This script should not be run as root during configuration phase.${NC}"
+#    echo -e "${RED}[!] Root privileges will be requested when needed for installation.${NC}"
+#    exit 1
+# fi
 
 # Check for required tools
 echo -e "${BLUE}[*] Checking system requirements...${NC}"
@@ -178,4 +178,3 @@ if lsmod | grep -q intel_rapl_snaps; then
 else
     echo -e "${YELLOW}[!] Warning: Module may not be loaded properly${NC}"
 fi
-
